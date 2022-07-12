@@ -31,7 +31,8 @@ public class Main {
 
         persons.stream()
                 .filter(person -> person.getAge() >= 18)
-                .filter(person -> person.getAge() <= 65)
+                .filter(person -> (person.getAge() < 65 && person.getSex() == Sex.MAN)
+                        || (person.getAge() < 60 && person.getSex() == Sex.WOMAN))
                 .sorted(Comparator.comparing(person -> person.getFamily()))
                 .collect(Collectors.toList());
     }
